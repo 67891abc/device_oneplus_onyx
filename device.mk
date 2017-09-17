@@ -295,6 +295,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
 
+# Configstore HIDL interfaces
+PRODUCT_PACKAGES += \
+    android.hardware.configstore@1.0-service
+
 # WiFi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
