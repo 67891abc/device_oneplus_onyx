@@ -61,16 +61,18 @@ static int sysfs_write(const char *path, char *s)
 
 static void power_init(struct power_module *module __unused)
 {
-    ALOGI("%s", __func__);
+    ALOGE("YumeMichi: %s", __func__);
 }
 
 static void power_set_interactive(struct power_module *module __unused,
                 int on __unused)
 {
+    ALOGE("YumeMichi: %s", __func__);
 }
 
 static void set_power_profile(int profile)
 {
+    ALOGE("YumeMichi: %s: Recieved power profile %d", __func__, profile);
     if (profile == current_power_profile)
         return;
 
@@ -92,6 +94,7 @@ static void set_power_profile(int profile)
 static void power_hint(struct power_module *module __unused, power_hint_t hint,
                 void *data __unused)
 {
+    ALOGE("YumeMichi: %s: Power hint %d", __func__, hint);
     if (hint == POWER_HINT_LOW_POWER) {
         set_power_profile(PROFILE_POWER_SAVE);
     }
@@ -113,7 +116,7 @@ static void set_feature(struct power_module *module __unused,
 static int power_open(const hw_module_t* module, const char* name,
                     hw_device_t** device)
 {
-    ALOGD("%s: enter; name=%s", __FUNCTION__, name);
+    ALOGE("YumeMichi: %s: enter; name=%s", __FUNCTION__, name);
 
     if (strcmp(name, POWER_HARDWARE_MODULE_ID)) {
         return -EINVAL;
@@ -123,7 +126,7 @@ static int power_open(const hw_module_t* module, const char* name,
             sizeof(power_module_t));
 
     if (!dev) {
-        ALOGD("%s: failed to allocate memory", __FUNCTION__);
+        ALOGE("YumeMichi: %s: failed to allocate memory", __FUNCTION__);
         return -ENOMEM;
     }
 
@@ -138,7 +141,7 @@ static int power_open(const hw_module_t* module, const char* name,
 
     *device = (hw_device_t*)dev;
 
-    ALOGD("%s: exit", __FUNCTION__);
+    ALOGE("YumeMichi: %s: exit", __FUNCTION__);
 
     return 0;
 }
