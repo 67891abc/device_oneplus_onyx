@@ -220,6 +220,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl
 
+# Thermal HIDL interfaces
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-impl
+
 # Limit dex2oat threads to improve thermals
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-threads=2 \
