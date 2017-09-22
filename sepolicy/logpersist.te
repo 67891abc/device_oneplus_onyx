@@ -1,0 +1,1 @@
+allow logpersist sysfs:file { open read getattr };

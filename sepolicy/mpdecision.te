@@ -1,0 +1,2 @@
+allow mpdecision sysfs:file { read getattr };
+allow mpdecision sysfs:dir { read open };
