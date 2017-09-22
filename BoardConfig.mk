@@ -41,7 +41,6 @@ TARGET_CPU_VARIANT := krait
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.bootdevice=msm_sdcc.1 ehci-hcd.park=3
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
@@ -185,10 +184,10 @@ TARGET_RIL_VARIANT := caf
 TARGET_NO_RPC := true
 
 # SELinux
-# include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
 
-# BOARD_SEPOLICY_DIRS += \
-#     $(PLATFORM_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += \
+    $(PLATFORM_PATH)/sepolicy
 
 # SnapDragon LLVM Compiler
 TARGET_USE_SDCLANG := true
