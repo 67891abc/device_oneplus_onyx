@@ -32,5 +32,6 @@ public class Startup extends BroadcastReceiver {
         MusicGestureSwitch.restore(context);
         HBMModeSwitch.restore(context);
         SwapBackRecents.restore(context);
+        DoubleTapSwitch.restore(context);
     }
 }

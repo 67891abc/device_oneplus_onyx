@@ -16,6 +16,8 @@
 <resources>
     <string name="app_name">附加设置</string>
     <string name="category_gestures_title">关屏手势</string>
+    <string name="double_tap_wake_title_head">点按唤醒</string>
+    <string name="double_tap_wake_summary_head">在屏幕上的任意位置点按两次即可唤醒设备</string>
     <string name="camera_title_head">相机</string>
     <string name="camera_summary_head">画一个圆圈以启动相机</string>
     <string name="torch_title_head">手电筒</string>

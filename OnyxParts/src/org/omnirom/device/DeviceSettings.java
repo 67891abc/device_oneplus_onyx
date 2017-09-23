@@ -44,6 +44,7 @@ public class DeviceSettings extends PreferenceActivity implements
     public static final String KEY_SWAP_BACK_RECENTS = "swap_back_recents";
     public static final String KEY_HBM_SWITCH = "hbm";
     public static final String KEY_PROXI_SWITCH = "proxi";
+    public static final String KEY_DOUBLE_TAP_SWITCH = "double_tap";
 
     private TwoStatePreference mTorchSwitch;
     private TwoStatePreference mCameraSwitch;
@@ -55,6 +56,7 @@ public class DeviceSettings extends PreferenceActivity implements
     private TwoStatePreference mSwapBackRecents;
     private TwoStatePreference mHBMModeSwitch;
     private TwoStatePreference mProxiSwitch;
+    private TwoStatePreference mDoubleTapSwitch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,6 +119,11 @@ public class DeviceSettings extends PreferenceActivity implements
         mProxiSwitch = (TwoStatePreference) findPreference(KEY_PROXI_SWITCH);
         mProxiSwitch.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.DEVICE_PROXI_CHECK_ENABLED, 0) == 1);
+
+        mDoubleTapSwitch = (TwoStatePreference) findPreference(KEY_DOUBLE_TAP_SWITCH);
+        mDoubleTapSwitch.setEnabled(DoubleTapSwitch.isSupported());
+        mDoubleTapSwitch.setChecked(DoubleTapSwitch.isCurrentlyEnabled(this));
+        mDoubleTapSwitch.setOnPreferenceChangeListener(new DoubleTapSwitch());
     }
 
     @Override
