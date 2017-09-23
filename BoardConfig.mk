@@ -15,9 +15,6 @@
 # limitations under the License.
 #
 
-# inherit from Oppo common
--include device/oppo/common/BoardConfigCommon.mk
-
 PLATFORM_PATH := device/oneplus/onyx
 
 # Include path
@@ -61,6 +58,10 @@ BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 # Assert
 TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
 TARGET_OTA_ASSERT_DEVICE := onyx,OnePlus,E1003,ONE
+
+# Releasetools
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_oppo
+TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
