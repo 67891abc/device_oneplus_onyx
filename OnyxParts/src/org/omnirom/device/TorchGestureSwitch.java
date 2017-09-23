@@ -26,14 +26,10 @@ import android.preference.PreferenceManager;
 public class TorchGestureSwitch implements OnPreferenceChangeListener {
 
     private static final String FILE = "/proc/touchpanel/flashlight_enable";
-    private static final String FILE_ALT = "/proc/touchpanel/down_arrow_enable";
 
     private static String getFile() {
         if (Utils.fileWritable(FILE)) {
             return FILE;
-        }
-        if (Utils.fileWritable(FILE_ALT)) {
-            return FILE_ALT;
         }
         return null;
     }

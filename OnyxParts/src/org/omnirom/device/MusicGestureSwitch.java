@@ -26,14 +26,10 @@ import android.preference.PreferenceManager;
 public class MusicGestureSwitch implements OnPreferenceChangeListener {
 
     private static final String FILE = "/proc/touchpanel/music_enable";
-    private static final String FILE_ALT = "/proc/touchpanel/double_swipe_enable";
 
     private static String getFile() {
         if (Utils.fileWritable(FILE)) {
             return FILE;
-        }
-        if (Utils.fileWritable(FILE_ALT)) {
-            return FILE_ALT;
         }
         return null;
     }
